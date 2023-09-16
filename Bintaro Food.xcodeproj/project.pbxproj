@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D64863462AB5EE110025D91A /* Bintaro_FoodApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64863452AB5EE110025D91A /* Bintaro_FoodApp.swift */; };
-		D64863482AB5EE110025D91A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64863472AB5EE110025D91A /* ContentView.swift */; };
+		D64863482AB5EE110025D91A /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64863472AB5EE110025D91A /* RestaurantListView.swift */; };
 		D648634A2AB5EE120025D91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D64863492AB5EE120025D91A /* Assets.xcassets */; };
 		D648634D2AB5EE120025D91A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D648634C2AB5EE120025D91A /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		D64863422AB5EE110025D91A /* Bintaro Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bintaro Food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D64863452AB5EE110025D91A /* Bintaro_FoodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bintaro_FoodApp.swift; sourceTree = "<group>"; };
-		D64863472AB5EE110025D91A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D64863472AB5EE110025D91A /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
 		D64863492AB5EE120025D91A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D648634C2AB5EE120025D91A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				D64863452AB5EE110025D91A /* Bintaro_FoodApp.swift */,
-				D64863472AB5EE110025D91A /* ContentView.swift */,
+				D64863472AB5EE110025D91A /* RestaurantListView.swift */,
 				D64863492AB5EE120025D91A /* Assets.xcassets */,
 				D648634B2AB5EE120025D91A /* Preview Content */,
 			);
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D64863482AB5EE110025D91A /* ContentView.swift in Sources */,
+				D64863482AB5EE110025D91A /* RestaurantListView.swift in Sources */,
 				D64863462AB5EE110025D91A /* Bintaro_FoodApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

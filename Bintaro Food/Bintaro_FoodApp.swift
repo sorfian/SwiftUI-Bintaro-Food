@@ -11,7 +11,7 @@ import SwiftUI
 struct Bintaro_FoodApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RestaurantListView()
         }
     }
 }
