@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D630FC222AC18DE4004330AF /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D630FC212AC18DE4004330AF /* Restaurant.swift */; };
 		D64863462AB5EE110025D91A /* Bintaro_FoodApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64863452AB5EE110025D91A /* Bintaro_FoodApp.swift */; };
 		D64863482AB5EE110025D91A /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64863472AB5EE110025D91A /* RestaurantListView.swift */; };
 		D648634A2AB5EE120025D91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D64863492AB5EE120025D91A /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D630FC212AC18DE4004330AF /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		D64863422AB5EE110025D91A /* Bintaro Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bintaro Food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D64863452AB5EE110025D91A /* Bintaro_FoodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bintaro_FoodApp.swift; sourceTree = "<group>"; };
 		D64863472AB5EE110025D91A /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
@@ -32,6 +34,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D61DDB1E2AC284D7007BF36D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D630FC212AC18DE4004330AF /* Restaurant.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D61DDB1F2AC284E4007BF36D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D64863472AB5EE110025D91A /* RestaurantListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D64863392AB5EE110025D91A = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +69,9 @@
 		D64863442AB5EE110025D91A /* Bintaro Food */ = {
 			isa = PBXGroup;
 			children = (
+				D61DDB1F2AC284E4007BF36D /* View */,
+				D61DDB1E2AC284D7007BF36D /* Model */,
 				D64863452AB5EE110025D91A /* Bintaro_FoodApp.swift */,
-				D64863472AB5EE110025D91A /* RestaurantListView.swift */,
 				D64863492AB5EE120025D91A /* Assets.xcassets */,
 				D648634B2AB5EE120025D91A /* Preview Content */,
 			);
@@ -139,6 +158,7 @@
 			files = (
 				D64863482AB5EE110025D91A /* RestaurantListView.swift in Sources */,
 				D64863462AB5EE110025D91A /* Bintaro_FoodApp.swift in Sources */,
+				D630FC222AC18DE4004330AF /* Restaurant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
