@@ -40,7 +40,25 @@ struct RestaurantListView: View {
             ForEach(restaurants.indices, id: \.self) { index in
                 
                 BasicTextImageRow(restaurant: $restaurants[index])
-            }
+                    .swipeActions(edge: .leading, content: {
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "heart")
+                        }
+                        .tint(.green)
+                        
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "square.and.arrow.up")
+                        }
+                        .tint(.orange)
+
+                    })            }
+            .onDelete(perform: { index in
+                restaurants.remove(atOffsets: index)
+            })
             .listRowSeparator(.hidden)
         }
         .listStyle(.plain)
@@ -126,17 +144,38 @@ struct BasicTextImageRow: View {
                     .foregroundColor(.red)
             }
         }
-        .onTapGesture {
-            showOptions.toggle()
-        }
-        .confirmationDialog("What do you want to do?", isPresented: $showOptions, titleVisibility: .visible) {
-            Button("Reserve a table") {
+//        .onTapGesture {
+//            showOptions.toggle()
+//        }
+//        .confirmationDialog("What do you want to do?", isPresented: $showOptions, titleVisibility: .visible) {
+//            Button("Reserve a table") {
+//                self.showError.toggle()
+//            }
+//            Button(restaurant.isFavorite ? "Remove from favorites" : "Mark as favorite") {
+//                self.restaurant.isFavorite.toggle()
+//            }
+//        }
+        .contextMenu(menuItems: {
+            Button {
                 self.showError.toggle()
+            } label: {
+                HStack {
+                    Text("Reserve a table")
+                    Image(systemName: "phone")
+                }
             }
-            Button(restaurant.isFavorite ? "Remove from favorites" : "Mark as favorite") {
+            
+            Button {
                 self.restaurant.isFavorite.toggle()
+            } label: {
+                HStack {
+                    Text(restaurant.isFavorite ? "Remove from favorites" : "Mark as favorite")
+                    Image(systemName: "heart")
+                }
             }
-        }
+
+
+        })
         .alert("Not yet available",isPresented: $showError) {
             Button("OK") {
                 
