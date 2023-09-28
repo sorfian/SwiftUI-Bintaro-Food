@@ -13,6 +13,8 @@
 		D64863482AB5EE110025D91A /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64863472AB5EE110025D91A /* RestaurantListView.swift */; };
 		D648634A2AB5EE120025D91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D64863492AB5EE120025D91A /* Assets.xcassets */; };
 		D648634D2AB5EE120025D91A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D648634C2AB5EE120025D91A /* Preview Assets.xcassets */; };
+		D68D6E372AC599BE00F0C12C /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D68D6E352AC599BE00F0C12C /* Nunito-Bold.ttf */; };
+		D68D6E382AC599BE00F0C12C /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D68D6E362AC599BE00F0C12C /* Nunito-Regular.ttf */; };
 		D6B015532AC41F890056A5B5 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B015522AC41F890056A5B5 /* RestaurantDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +26,9 @@
 		D64863472AB5EE110025D91A /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
 		D64863492AB5EE120025D91A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D648634C2AB5EE120025D91A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D68D6E352AC599BE00F0C12C /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		D68D6E362AC599BE00F0C12C /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		D68D6E392AC59ABF00F0C12C /* Bintaro-Food-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Bintaro-Food-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D6B015522AC41F890056A5B5 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +80,8 @@
 		D64863442AB5EE110025D91A /* Bintaro Food */ = {
 			isa = PBXGroup;
 			children = (
+				D68D6E392AC59ABF00F0C12C /* Bintaro-Food-Info.plist */,
+				D68D6E332AC5996900F0C12C /* Resources */,
 				D61DDB1F2AC284E4007BF36D /* View */,
 				D61DDB1E2AC284D7007BF36D /* Model */,
 				D64863452AB5EE110025D91A /* Bintaro_FoodApp.swift */,
@@ -90,6 +97,23 @@
 				D648634C2AB5EE120025D91A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D68D6E332AC5996900F0C12C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D68D6E342AC5997A00F0C12C /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D68D6E342AC5997A00F0C12C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D68D6E352AC599BE00F0C12C /* Nunito-Bold.ttf */,
+				D68D6E362AC599BE00F0C12C /* Nunito-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +175,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D648634D2AB5EE120025D91A /* Preview Assets.xcassets in Resources */,
+				D68D6E372AC599BE00F0C12C /* Nunito-Bold.ttf in Resources */,
+				D68D6E382AC599BE00F0C12C /* Nunito-Regular.ttf in Resources */,
 				D648634A2AB5EE120025D91A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,6 +324,7 @@
 				DEVELOPMENT_TEAM = 6LUDQ7NCJV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Bintaro-Food-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -327,6 +354,7 @@
 				DEVELOPMENT_TEAM = 6LUDQ7NCJV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Bintaro-Food-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
