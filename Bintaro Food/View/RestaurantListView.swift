@@ -36,32 +36,46 @@ struct RestaurantListView: View {
     @State var restaurantIsFavorites = Array(repeating: false, count: 21)
     
     var body: some View {
-        List {
-            ForEach(restaurants.indices, id: \.self) { index in
-                
-                BasicTextImageRow(restaurant: $restaurants[index])
-                    .swipeActions(edge: .leading, content: {
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "heart")
+        NavigationStack {
+            List {
+                ForEach(restaurants.indices, id: \.self) { index in
+                    
+                    ZStack(alignment: .leading) {
+                        NavigationLink(destination:
+                            RestaurantDetailView(restaurant: restaurants[index])
+                        ) {
+                            EmptyView()
                         }
-                        .tint(.green)
+                        .opacity(0)
                         
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "square.and.arrow.up")
-                        }
-                        .tint(.orange)
+                        BasicTextImageRow(restaurant: $restaurants[index])
+                            .swipeActions(edge: .leading, content: {
+                                Button {
+                                    
+                                } label: {
+                                    Image(systemName: "heart")
+                                }
+                                .tint(.green)
+                                
+                                Button {
+                                    
+                                } label: {
+                                    Image(systemName: "square.and.arrow.up")
+                                }
+                                .tint(.orange)
 
-                    })            }
-            .onDelete(perform: { index in
-                restaurants.remove(atOffsets: index)
-            })
-            .listRowSeparator(.hidden)
+                        })
+                    }            }
+                .onDelete(perform: { index in
+                    restaurants.remove(atOffsets: index)
+                })
+                .listRowSeparator(.hidden)
+            }
+            .listStyle(.plain)
+            .navigationTitle("Bintaro Food")
+            .navigationBarTitleDisplayMode(.automatic)
         }
-        .listStyle(.plain)
+        .tint(.white)
     }
 }
 
