@@ -65,6 +65,17 @@ struct RestaurantDetailView: View {
                 }
                 .padding(.horizontal)
                 
+                NavigationLink {
+                    MapView(location: restaurant.location)
+                        .edgesIgnoringSafeArea(.all)
+                } label: {
+                    MapView(location: restaurant.location)
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .frame(height: 200)
+                        .cornerRadius(20)
+                    .padding()
+                }
+                
             }
         })
         .ignoresSafeArea()

@@ -16,6 +16,7 @@
 		D64994502AC5BBB200B84EF6 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D649944F2AC5BBB200B84EF6 /* UIColor+Ext.swift */; };
 		D68D6E372AC599BE00F0C12C /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D68D6E352AC599BE00F0C12C /* Nunito-Bold.ttf */; };
 		D68D6E382AC599BE00F0C12C /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D68D6E362AC599BE00F0C12C /* Nunito-Regular.ttf */; };
+		D691BDC82AC99312000EF2F4 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D691BDC72AC99312000EF2F4 /* MapView.swift */; };
 		D6B015532AC41F890056A5B5 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6B015522AC41F890056A5B5 /* RestaurantDetailView.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		D68D6E352AC599BE00F0C12C /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		D68D6E362AC599BE00F0C12C /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		D68D6E392AC59ABF00F0C12C /* Bintaro-Food-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Bintaro-Food-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D691BDC72AC99312000EF2F4 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		D6B015522AC41F890056A5B5 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +61,7 @@
 				D64863472AB5EE110025D91A /* RestaurantListView.swift */,
 				D6283A6F2AC2D3290011EC13 /* ActivityView.swift */,
 				D6B015522AC41F890056A5B5 /* RestaurantDetailView.swift */,
+				D691BDC72AC99312000EF2F4 /* MapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D691BDC82AC99312000EF2F4 /* MapView.swift in Sources */,
 				D64863482AB5EE110025D91A /* RestaurantListView.swift in Sources */,
 				D6B015532AC41F890056A5B5 /* RestaurantDetailView.swift in Sources */,
 				D6283A702AC2D3290011EC13 /* ActivityView.swift in Sources */,
