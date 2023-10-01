@@ -25,7 +25,7 @@ struct RestaurantDetailView: View {
                                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topTrailing)
                                 .padding()
                                 .font(.system(size: 30))
-                                .foregroundColor(.white)
+                                .foregroundColor(restaurant.isFavorite ? .red : .white)
                                 .padding(.top, 40)
                             
                             VStack(alignment: .leading, spacing: 5) {
