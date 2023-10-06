@@ -13,7 +13,12 @@ struct RestaurantDetailView: View {
     
     @State private var showReview = false
     
+    
     var body: some View {
+        if let ratingcafe = restaurant.rating?.rawValue {
+            var _ = print(ratingcafe)
+        }
+        
         ScrollView(content: {
             VStack(alignment: .leading) {
                 Image(restaurant.image)
@@ -30,21 +35,32 @@ struct RestaurantDetailView: View {
                                 .foregroundColor(restaurant.isFavorite ? .red : .white)
                                 .padding(.top, 40)
                             
-                            VStack(alignment: .leading, spacing: 5) {
-                                Text(restaurant.name)
-                                    .font(.custom("Nunito-Regular", size: 35, relativeTo: .largeTitle))
-                                    .bold()
-                                
-                                Text(restaurant.type)
-                                    .font(.system(.headline, design: .rounded))
-                                    .padding(.all, 5)
-                                    .background {
-                                        Color.black
-                                    }
-                            }
-                            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
-                            .foregroundColor(.white)
+                            HStack(alignment: .bottom) {
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Text(restaurant.name)
+                                        .font(.custom("Nunito-Regular", size: 35, relativeTo: .largeTitle))
+                                        .bold()
+                                    
+                                    Text(restaurant.type)
+                                        .font(.system(.headline, design: .rounded))
+                                        .padding(.all, 5)
+                                        .background {
+                                            Color.black
+                                        }
+                                }
+                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .bottomLeading)
+                                .foregroundColor(.white)
                             .padding()
+                                
+                                if let rating = restaurant.rating, !showReview {
+                                    Image(rating.image)
+                                        .resizable()
+                                        .frame(width: 60, height: 60)
+                                        .padding([.bottom, .trailing])
+                                        .transition(.scale)
+                                }
+                            }
+                            .animation(.spring(response: 0.2, dampingFraction: 0.3, blendDuration: 0.3), value: restaurant.rating)
                         }
                     }
                 Text(restaurant.description)
