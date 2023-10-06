@@ -11,6 +11,8 @@ struct RestaurantDetailView: View {
     var restaurant: Restaurant
     @Environment(\.dismiss) var dismiss
     
+    @State private var showReview = false
+    
     var body: some View {
         ScrollView(content: {
             VStack(alignment: .leading) {
@@ -76,6 +78,21 @@ struct RestaurantDetailView: View {
                     .padding()
                 }
                 
+                Button {
+                    self.showReview.toggle()
+                } label: {
+                    Text("Rate it")
+                        .font(.system(.headline, design: .rounded))
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                }
+                .tint(Color("NavigationBarTitle"))
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.roundedRectangle(radius: 25))
+                .controlSize(.large)
+                .padding(.horizontal)
+                .padding(.bottom, 20)
+
+                
             }
         })
         .ignoresSafeArea()
@@ -89,6 +106,12 @@ struct RestaurantDetailView: View {
                 }
 
             }
+        }
+        .overlay {
+            self.showReview ? ZStack {
+                ReviewView(restaurant: restaurant, isDisplayed: $showReview)
+                    .toolbar(.hidden)
+            } : nil
         }
     }
 }
