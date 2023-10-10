@@ -16,6 +16,8 @@ struct RestaurantListView: View {
     
     @State var restaurantIsFavorites = Array(repeating: false, count: 21)
     
+    @State private var showNewRestaurant = false
+    
     var body: some View {
         NavigationStack {
             List {
@@ -55,8 +57,19 @@ struct RestaurantListView: View {
             .listStyle(.plain)
             .navigationTitle("Bintaro Food")
             .navigationBarTitleDisplayMode(.automatic)
+            .toolbar {
+                Button {
+                    self.showNewRestaurant = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+            .tint(.primary)
         }
         .tint(.white)
+        .sheet(isPresented: $showNewRestaurant) {
+            NewRestaurantView()
+        }
     }
 }
 

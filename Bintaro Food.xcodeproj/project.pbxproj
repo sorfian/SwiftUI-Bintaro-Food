@@ -11,6 +11,7 @@
 		D62BABE32AD198E800F27816 /* NewRestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62BABE22AD198E800F27816 /* NewRestaurantView.swift */; };
 		D62BABE82AD19B3800F27816 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62BABE72AD19B3800F27816 /* FormTextField.swift */; };
 		D62BABEA2AD19D6600F27816 /* FormTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62BABE92AD19D6600F27816 /* FormTextView.swift */; };
+		D62BABED2AD1A81A00F27816 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D62BABEC2AD1A81A00F27816 /* ImagePicker.swift */; };
 		D630FC222AC18DE4004330AF /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D630FC212AC18DE4004330AF /* Restaurant.swift */; };
 		D64863462AB5EE110025D91A /* Bintaro_FoodApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64863452AB5EE110025D91A /* Bintaro_FoodApp.swift */; };
 		D64863482AB5EE110025D91A /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64863472AB5EE110025D91A /* RestaurantListView.swift */; };
@@ -29,6 +30,7 @@
 		D62BABE22AD198E800F27816 /* NewRestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRestaurantView.swift; sourceTree = "<group>"; };
 		D62BABE72AD19B3800F27816 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		D62BABE92AD19D6600F27816 /* FormTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextView.swift; sourceTree = "<group>"; };
+		D62BABEC2AD1A81A00F27816 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D630FC212AC18DE4004330AF /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		D64863422AB5EE110025D91A /* Bintaro Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bintaro Food.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D64863452AB5EE110025D91A /* Bintaro_FoodApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bintaro_FoodApp.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 			path = Component;
 			sourceTree = "<group>";
 		};
+		D62BABEB2AD1A7E700F27816 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				D62BABEC2AD1A81A00F27816 /* ImagePicker.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		D64863392AB5EE110025D91A = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 		D64863442AB5EE110025D91A /* Bintaro Food */ = {
 			isa = PBXGroup;
 			children = (
+				D62BABEB2AD1A7E700F27816 /* Util */,
 				D649944E2AC5BB9700B84EF6 /* Extensions */,
 				D68D6E392AC59ABF00F0C12C /* Bintaro-Food-Info.plist */,
 				D68D6E332AC5996900F0C12C /* Resources */,
@@ -231,6 +242,7 @@
 				D62BABEA2AD19D6600F27816 /* FormTextView.swift in Sources */,
 				D62BABE32AD198E800F27816 /* NewRestaurantView.swift in Sources */,
 				D64994502AC5BBB200B84EF6 /* UIColor+Ext.swift in Sources */,
+				D62BABED2AD1A81A00F27816 /* ImagePicker.swift in Sources */,
 				D64863462AB5EE110025D91A /* Bintaro_FoodApp.swift in Sources */,
 				D630FC222AC18DE4004330AF /* Restaurant.swift in Sources */,
 			);
