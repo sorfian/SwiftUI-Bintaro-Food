@@ -21,7 +21,7 @@ struct RestaurantDetailView: View {
         
         ScrollView(content: {
             VStack(alignment: .leading) {
-                Image(restaurant.image)
+                Image(uiImage: UIImage(data: restaurant.image)!)
                     .resizable()
                     .scaledToFill()
                     .frame(minWidth: 0, maxWidth: .infinity)
@@ -135,7 +135,8 @@ struct RestaurantDetailView: View {
 struct RestaurantDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationStack {
-            RestaurantDetailView(restaurant: Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "G/F, 72 Po Hing Fong, Sheung Wan, Hong Kong", phone: "0823-1034-0134", description: "Searching for great breakfast eateries and coffee? This place is for you. We open at 6:30 every morning, and close at 9 PM. We offer espresso and espresso based drink, such as capuccino, cafe latte, piccolo and many more. Come over and enjoy a great meal.", image: "cafedeadend", isFavorite: false))
+            RestaurantDetailView(restaurant: (PersistenceController.testData?.first)!)
+                .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         }
         .tint(.white)
     }

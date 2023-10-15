@@ -9,10 +9,9 @@ import SwiftUI
 
 struct RestaurantListView: View {
     
-    @State var restaurants = [
-        Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "G/F, 72 Po Hing Fong, Sheung Wan, Hong Kong", phone: "232-923423", description: "Searching for great breakfast eateries and coffee? This place is for you. We open at 6:30 every morning, and close at 9 PM. We offer espresso and espresso based drink, such as capuccino, cafe latte, piccolo and many more. Come over and enjoy a great meal.", image: "cafedeadend", isFavorite: false),
-        Restaurant(name: "Homei", type: "Cafe", location: "Shop B, G/F, 22-24A Tai Ping San Street SOHO, Sheung Wan, Hong Kong", phone: "348-233423", description: "A little gem hidden at the corner of the street is nothing but fantastic! This place is warm and cozy. We open at 7 every morning except Sunday, and close at 9 PM. We offer a variety of coffee drinks and specialties including lattes, cappuccinos, teas, and more. We serve breakfast, lunch, and dinner in an airy open setting. Come over, have a coffee and enjoy a chit-chat with our baristas.", image: "homei", isFavorite: false),
-    ]
+    @FetchRequest(entity: Restaurant.entity(), sortDescriptors: []) var restaurants: FetchedResults<Restaurant>
+    
+    @Environment(\.managedObjectContext) var context
     
     @State var restaurantIsFavorites = Array(repeating: false, count: 21)
     
@@ -21,38 +20,43 @@ struct RestaurantListView: View {
     var body: some View {
         NavigationStack {
             List {
-                ForEach(restaurants.indices, id: \.self) { index in
-                    
-                    ZStack(alignment: .leading) {
-                        NavigationLink(destination:
-                            RestaurantDetailView(restaurant: restaurants[index])
-                        ) {
-                            EmptyView()
-                        }
-                        .opacity(0)
+                if restaurants.count == 0 {
+                    Image("emptydata")
+                        .resizable()
+                        .scaledToFit()
+                } else {
+                    ForEach(restaurants.indices, id: \.self) { index in
                         
-                        BasicTextImageRow(restaurant: $restaurants[index])
-                            .swipeActions(edge: .leading, content: {
-                                Button {
+                        ZStack(alignment: .leading) {
+                            NavigationLink(destination:
+                                RestaurantDetailView(restaurant: restaurants[index])
+                            ) {
+                                EmptyView()
+                            }
+                            .opacity(0)
+                            
+                            BasicTextImageRow(restaurant: restaurants[index])
+                                .swipeActions(edge: .leading, content: {
+                                    Button {
+                                        
+                                    } label: {
+                                        Image(systemName: "heart")
+                                    }
+                                    .tint(.green)
                                     
-                                } label: {
-                                    Image(systemName: "heart")
-                                }
-                                .tint(.green)
-                                
-                                Button {
-                                    
-                                } label: {
-                                    Image(systemName: "square.and.arrow.up")
-                                }
-                                .tint(.orange)
+                                    Button {
+                                        
+                                    } label: {
+                                        Image(systemName: "square.and.arrow.up")
+                                    }
+                                    .tint(.orange)
 
-                        })
-                    }            }
-                .onDelete(perform: { index in
-                    restaurants.remove(atOffsets: index)
-                })
-                .listRowSeparator(.hidden)
+                            })
+                        }
+                    }
+                    .onDelete(perform: deleteRecord)
+                    .listRowSeparator(.hidden)
+                }
             }
             .listStyle(.plain)
             .navigationTitle("Bintaro Food")
@@ -71,17 +75,34 @@ struct RestaurantListView: View {
             NewRestaurantView()
         }
     }
+    
+    private func deleteRecord(indexSet: IndexSet) {
+        for index in indexSet {
+            let itemToDelete = restaurants[index]
+            context.delete(itemToDelete)
+        }
+        
+        DispatchQueue.main.async {
+            do {
+                try context.save()
+            } catch {
+                print(error)
+            }
+        }
+    }
 }
 
 struct RestaurantListView_Previews: PreviewProvider {
     static var previews: some View {
         RestaurantListView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
         
         RestaurantListView()
+            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .preferredColorScheme(.dark)
             .previewDisplayName("Restaurant List View (Dark)")
         
-        BasicTextImageRow(restaurant: .constant(Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "G/F, 72 Po Hing Fong, Sheung Wan, Hong Kong", phone: "0823-1034-0134", description: "Searching for great breakfast eateries and coffee? This place is for you. We open at 6:30 every morning, and close at 9 PM. We offer espresso and espresso based drink, such as capuccino, cafe latte, piccolo and many more. Come over and enjoy a great meal.", image: "cafedeadend", isFavorite: false)))
+        BasicTextImageRow(restaurant: (PersistenceController.testData?.first)!)
             .previewLayout(.sizeThatFits)
             .previewDisplayName("BasicTextImageRow")
         
@@ -125,11 +146,11 @@ struct BasicTextImageRow: View {
     
     @State private var showOptions = false
     @State private var showError = false
-    @Binding var restaurant: Restaurant
+    @ObservedObject var restaurant: Restaurant
     
     var body: some View {
         HStack(alignment: .top, spacing: 20) {
-            Image(restaurant.image)
+            Image(uiImage: UIImage(data: restaurant.image) ?? UIImage())
                 .resizable()
                 .scaledToFill()
                 .frame(width: 120 ,height: 118)
@@ -197,7 +218,7 @@ struct BasicTextImageRow: View {
         .sheet(isPresented: $showOptions, content: {
             let defaultText = "Just checking in at \(restaurant.name)"
             
-            if let imageToShare = UIImage(named: restaurant.image) {
+            if let imageToShare = UIImage(data: restaurant.image) {
                 ActivityView(activityItems: [defaultText, imageToShare])
             } else {
                 ActivityView(activityItems: [defaultText])
@@ -214,3 +235,5 @@ struct BasicTextImageRow: View {
         
     }
 }
+
+
