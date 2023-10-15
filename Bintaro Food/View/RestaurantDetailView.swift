@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct RestaurantDetailView: View {
-    var restaurant: Restaurant
+    @ObservedObject var restaurant: Restaurant
     @Environment(\.dismiss) var dismiss
     
     @State private var showReview = false
     
+    @Environment(\.managedObjectContext) var context
     
     var body: some View {
         if let ratingcafe = restaurant.rating?.rawValue {
@@ -28,12 +29,12 @@ struct RestaurantDetailView: View {
                     .frame(height: 445)
                     .overlay {
                         VStack {
-                            Image(systemName: restaurant.isFavorite ? "heart.fill" : "heart")
-                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topTrailing)
-                                .padding()
-                                .font(.system(size: 30))
-                                .foregroundColor(restaurant.isFavorite ? .red : .white)
-                                .padding(.top, 40)
+//                            Image(systemName: restaurant.isFavorite ? "heart.fill" : "heart")
+//                                .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topTrailing)
+//                                .padding()
+//                                .font(.system(size: 30))
+//                                .foregroundColor(restaurant.isFavorite ? .red : .white)
+//                                .padding(.top, 40)
                             
                             HStack(alignment: .bottom) {
                                 VStack(alignment: .leading, spacing: 5) {
@@ -63,7 +64,7 @@ struct RestaurantDetailView: View {
                             .animation(.spring(response: 0.2, dampingFraction: 0.3, blendDuration: 0.3), value: restaurant.rating)
                         }
                     }
-                Text(restaurant.description)
+                Text(restaurant.summary)
                     .padding()
                 
                 HStack(alignment: .top) {
@@ -122,12 +123,34 @@ struct RestaurantDetailView: View {
                 }
 
             }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    restaurant.isFavorite.toggle()
+                    save()
+                } label: {
+                    Image(systemName: restaurant.isFavorite ? "heart.fill" : "heart")
+                        .foregroundColor(restaurant.isFavorite ? .red : .white)
+                }
+
+            }
         }
         .overlay {
             self.showReview ? ZStack {
                 ReviewView(restaurant: restaurant, isDisplayed: $showReview)
                     .toolbar(.hidden)
             } : nil
+        }
+    }
+    
+    private func save() {
+//        restaurant.isFavorite = isFavoriteButton
+
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save the record...")
+            print(error.localizedDescription)
         }
     }
 }

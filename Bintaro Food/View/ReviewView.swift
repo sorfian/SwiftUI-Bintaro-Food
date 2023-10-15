@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ReviewView: View {
-    var restaurant: Restaurant
+    @ObservedObject var restaurant: Restaurant
     @Binding var isDisplayed: Bool
     @State private var showRatings = false
+    
+    @Environment(\.managedObjectContext) var context
     
     var body: some View {
         ZStack {
@@ -60,6 +62,8 @@ struct ReviewView: View {
                     .onTapGesture {
                         self.restaurant.rating = rating
                         self.isDisplayed = false
+                        save(rating: rating)
+                        
                     }
                 }
             })
@@ -68,6 +72,17 @@ struct ReviewView: View {
             showRatings.toggle()
         }
         
+    }
+    
+    private func save(rating: Restaurant.Rating) {
+        restaurant.rating = rating
+
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save the record...")
+            print(error.localizedDescription)
+        }
     }
 }
 
